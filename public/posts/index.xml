@@ -35,12 +35,10 @@ Here you can see my attempt:</p>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> IFS<span style="color:#f92672">=</span>: read -r user pass; <span style="color:#66d9ef">do</span> 
 </span></span><span style="display:flex;"><span>  curl --user <span style="color:#e6db74">&#34;</span>$user<span style="color:#e6db74">:</span>$pass<span style="color:#e6db74">&#34;</span> $URL &gt;&gt; hmm_file 
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
-</span></span></code></pre></div>]]></content></item><item><title>Over the wire - Natas3</title><link>https://www.blog.maksw.eu/posts/natas3/</link><pubDate>Tue, 03 Mar 2026 21:37:00 +0000</pubDate><guid>https://www.blog.maksw.eu/posts/natas3/</guid><description>Natas3
-The hint was :
+</span></span></code></pre></div>]]></content></item><item><title>Over the wire - Natas3</title><link>https://www.blog.maksw.eu/posts/natas3/</link><pubDate>Tue, 03 Mar 2026 21:37:00 +0000</pubDate><guid>https://www.blog.maksw.eu/posts/natas3/</guid><description>The hint was :
 I completely randomly tried to check the robots.txt file&amp;hellip;
 URL=http://natas3.natas.labs.overthewire.org curl --user natas3:$(cat natas3) $URL&amp;#34;/robots.txt&amp;#34; There I found /s3cr3t/ which then led me to the /s3cr3t/users.txt file with the password for natas4. In the hindsight I get it &amp;ldquo;Not even Google&amp;rdquo; web crawlers will find it. Robots.txt is a informational file for web crawlers to see what they should index or not&amp;hellip;
-curl --user natas3:$(cat natas3 ) $URL&amp;#34;/s3cr3t/users.</description><content type="html"><![CDATA[<p>Natas3</p>
-<p>The hint was :</p>
+curl --user natas3:$(cat natas3 ) $URL&amp;#34;/s3cr3t/users.</description><content type="html"><![CDATA[<p>The hint was :</p>
 <!-- raw HTML omitted -->
 <p>I completely randomly tried to check the robots.txt file&hellip;</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>URL<span style="color:#f92672">=</span>http://natas3.natas.labs.overthewire.org
