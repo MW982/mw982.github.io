@@ -7,11 +7,9 @@ Natas is about another topic of interest to me - web security. I will document m
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>curl --user natas0:natas0 $URL
 </span></span></code></pre></div><p>By looking at the HTML source code you can easily find the password for the next level - natas1.</p>
-]]></content></item><item><title>Over the wire - Natas1</title><link>https://www.blog.maksw.eu/posts/natas1/</link><pubDate>Tue, 03 Mar 2026 21:37:00 +0000</pubDate><guid>https://www.blog.maksw.eu/posts/natas1/</guid><description>Natas1
-Well right clicking has been blocked on this level. What can I do !? Oh wait, I was using curl to begin with another easy level.
+]]></content></item><item><title>Over the wire - Natas1</title><link>https://www.blog.maksw.eu/posts/natas1/</link><pubDate>Tue, 03 Mar 2026 21:37:00 +0000</pubDate><guid>https://www.blog.maksw.eu/posts/natas1/</guid><description>Well right clicking has been blocked on this level. What can I do !? Oh wait, I was using curl to begin with another easy level.
 More curling (and a little bit of linux basic spells to get the password -&amp;gt; I store the password in a file called natas1 and cat it to the curl command)
-URL=http://natas1.natas.labs.overthewire.org curl --user natas1:$(cat natas1) $URL Once again, the password is in the HTML source code.</description><content type="html"><![CDATA[<p>Natas1</p>
-<p>Well right clicking has been blocked on this level. What can I do !? Oh wait, I was using curl to begin with another easy level.</p>
+URL=http://natas1.natas.labs.overthewire.org curl --user natas1:$(cat natas1) $URL Once again, the password is in the HTML source code.</description><content type="html"><![CDATA[<p>Well right clicking has been blocked on this level. What can I do !? Oh wait, I was using curl to begin with another easy level.</p>
 <p>More curling (and a little bit of linux basic spells to get the password -&gt; I store the password in a file called natas1 and cat it to the curl command)</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>URL<span style="color:#f92672">=</span>http://natas1.natas.labs.overthewire.org
 </span></span><span style="display:flex;"><span>
