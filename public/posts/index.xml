@@ -1,4 +1,122 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Maksymilian Więckowski - blog</title><link>https://www.blog.maksw.eu/posts/</link><description>Recent content in Posts on Maksymilian Więckowski - blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 14 Mar 2026 12:11:00 +0000</lastBuildDate><atom:link href="https://www.blog.maksw.eu/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Over the wire - Natas10</title><link>https://www.blog.maksw.eu/posts/natas10/</link><pubDate>Sat, 14 Mar 2026 11:11:00 +0000</pubDate><guid>https://www.blog.maksw.eu/posts/natas10/</guid><description>This one is the same as Natas9, but with a small &amp;ldquo;roadblock&amp;rdquo;.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Maksymilian Więckowski - blog</title><link>https://www.blog.maksw.eu/posts/</link><description>Recent content in Posts on Maksymilian Więckowski - blog</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 22 Mar 2026 12:11:00 +0000</lastBuildDate><atom:link href="https://www.blog.maksw.eu/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Cool things about XOR</title><link>https://www.blog.maksw.eu/posts/xor/</link><pubDate>Sun, 22 Mar 2026 12:11:00 +0000</pubDate><guid>https://www.blog.maksw.eu/posts/xor/</guid><description>What is XOR ? Xor is Exclusive OR.
+It&amp;rsquo;s a logical operator, which returns true when both inputs are different. In programming it is usually indicated by ^. In mathematics it&amp;rsquo;s ⊕ or ⊻.
+Quick look at the truth tables should explain it.
+a b a ^ b 1 0 1 0 0 0 1 1 1 0 1 1 But how does it work with strings or numbers like 67?</description><content type="html"><![CDATA[<h2 id="what-is-xor-">What is XOR ?</h2>
+<p>Xor is Exclusive OR.<br>
+It&rsquo;s a logical operator, which returns true when both inputs are different.
+In programming it is usually indicated by <strong>^</strong>. In mathematics it&rsquo;s <strong>⊕</strong> or <strong>⊻</strong>.<br>
+Quick look at the truth tables should explain it.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">a</th>
+<th style="text-align:center">b</th>
+<th style="text-align:center">a ^ b</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<p>But how does it work with strings or numbers like 67?</p>
+<p><strong>It operates on bits:</strong></p>
+<pre tabindex="0"><code>100 in binary is 0b1100100
+10 in binary  is 0b0001010
+100 ^ 10      is 0b1101110
+</code></pre><h2 id="cool-things-about-xor-are-">Cool things about XOR are &hellip;</h2>
+<pre tabindex="0"><code>
+# Commutative =&gt; Order doesn&#39;t matter
+a ^ b = c
+b ^ a = c
+
+# Self-inverse =&gt; applying the same XOR undoes itself
+a ^ b ^ b = a 
+c ^ b = a
+
+----
+
+a = a
+a ^ a = 0
+a ^ a ^ a = a
+...
+</code></pre><p>If you don&rsquo;t see it immediatly don&rsquo;t fret.<br>
+It means if you do A XOR B you will get C, and then if you do C XOR A you get the B.<br>
+Meaning if you have a secret and a key you could XOR them together to encrypt the secret and then if you want to retrieve the secret you just do the Encrypted Secret XOR key and you get the secret.<br>
+This way of encrypting data is known as <a href="https://en.wikipedia.org/wiki/XOR_cipher#Use_and_security">XOR cipher</a>.</p>
+<h2 id="list-of-numbers-with-pairs-problem">List of numbers with pairs problem</h2>
+<p>You have a huge list of numbers and you know that all of them except one occur an even number of times.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>numbers <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">9</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># What will happen if you XOR every number in the list?</span>
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> num <span style="color:#f92672">in</span> numbers:
+</span></span><span style="display:flex;"><span>  result <span style="color:#f92672">^=</span> num
+</span></span></code></pre></div><p>If you remembered the self-inverse and commutative properties of XOR, then you know that the result will be 6 as it&rsquo;s the only number that appears once in the list.</p>
+<h2 id="swapping-variables">Swapping variables</h2>
+<p>Ever wondered how can you swap two variables without a third temporary one?<br>
+Me neither, but you can do that with XOR!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>b <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> a <span style="color:#f92672">^</span> b
+</span></span><span style="display:flex;"><span>b <span style="color:#f92672">=</span> b <span style="color:#f92672">^</span> a
+</span></span><span style="display:flex;"><span>a <span style="color:#f92672">=</span> a <span style="color:#f92672">^</span> a
+</span></span></code></pre></div>]]></content></item><item><title>Over the wire - Natas11</title><link>https://www.blog.maksw.eu/posts/natas11/</link><pubDate>Sun, 22 Mar 2026 12:11:00 +0000</pubDate><guid>https://www.blog.maksw.eu/posts/natas11/</guid><description>I suggest reading my other post about XOR before going into this post. You will need to understand &amp;ldquo;XOR encryption&amp;rdquo; for this natas.
+Usual start:
+URL=http://natas11.natas.labs.overthewire.org curl --user natas11:$(cat natas11 ) $URL curl --user natas11:$(cat natas11 ) $URL&amp;#34;/index-source.html&amp;#34; In this issue I found a process of loading a cookie. It does 3 things:
+json_encode an array xor_encrypt the json base64 the json and load it as the cookie What needs to be done?</description><content type="html"><![CDATA[<p>I suggest reading my other post about <a href="/posts/xor/">XOR</a> before going into this
+post. You will need to understand &ldquo;XOR encryption&rdquo; for this natas.</p>
+<p>Usual start:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>URL<span style="color:#f92672">=</span>http://natas11.natas.labs.overthewire.org
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>curl --user  natas11:<span style="color:#66d9ef">$(</span>cat natas11 <span style="color:#66d9ef">)</span> $URL
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>curl --user  natas11:<span style="color:#66d9ef">$(</span>cat natas11 <span style="color:#66d9ef">)</span> $URL<span style="color:#e6db74">&#34;/index-source.html&#34;</span>
+</span></span></code></pre></div><p>In this issue I found a process of loading a cookie. It does 3 things:</p>
+<ol>
+<li>json_encode an array</li>
+<li>xor_encrypt the json</li>
+<li>base64 the json and load it as the cookie</li>
+</ol>
+<h2 id="what-needs-to-be-done">What needs to be done?</h2>
+<p>I need to create a cookie, that has showpassword equal to yes, then I need to do the process described above and send this requst with a cookie.<br>
+First problem is that I don&rsquo;t have the key that is used in the xor_encrypt function, but &hellip;<br>
+XOR encryption is pretty simple to break, when you know what is being encrypted and the output of the encrytion.</p>
+<p>I wrote a python script to solve this which retrieves the key of the xor encryption:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>cookie <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;HmYkBwozJw4WNyAAFyB1VUcqOE1JZjUIBis7ABdmbU1GIjEJAyIxTRg=&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>array <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;{</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">showpassword</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">:</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">no</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">,</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">bgcolor</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">:</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">#ffffff</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">}&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cipher <span style="color:#f92672">=</span> base64<span style="color:#f92672">.</span>b64decode(cookie)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>key <span style="color:#f92672">=</span> bytes([cipher[index] <span style="color:#f92672">^</span> ord(char) <span style="color:#66d9ef">for</span> index, char <span style="color:#f92672">in</span> enumerate(array)])
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># key = b&#39;eDWoeDWoeDWoeDWoeDWoeDWoeDWoeDWoeDWoeDWoe&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>key <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;eDWo&#34;</span>
+</span></span></code></pre></div><p>Key is repeated because it&rsquo;s smaller than the secret which was encrypted (and we can see modulo operation in the xor_encrypt function).<br>
+After that I took the php script, and changed the <strong>showpassword</strong> to yes and inputed my key into the xor_encrypt. Rerun that and I got my new cookie.</p>
+<p>One request later I got the password for the next level.</p>
+]]></content></item><item><title>Over the wire - Natas10</title><link>https://www.blog.maksw.eu/posts/natas10/</link><pubDate>Sat, 14 Mar 2026 11:11:00 +0000</pubDate><guid>https://www.blog.maksw.eu/posts/natas10/</guid><description>This one is the same as Natas9, but with a small &amp;ldquo;roadblock&amp;rdquo;.
 Let&amp;rsquo;s check what do we have:
 URL=http://natas10.natas.labs.overthewire.org curl --user natas10:$(cat natas10 ) $URL curl --user natas10:$(cat natas10 ) $URL&amp;#34;/index-source.html&amp;#34; Just gonna show you the important part:
 Output: &amp;lt;pre&amp;gt; &amp;lt;? $key = &amp;#34;&amp;#34;; if(array_key_exists(&amp;#34;needle&amp;#34;, $_REQUEST)) { $key = $_REQUEST[&amp;#34;needle&amp;#34;]; } if($key != &amp;#34;&amp;#34;) { if(preg_match(&amp;#39;/[;|&amp;amp;]/&amp;#39;,$key)) { print &amp;#34;Input contains an illegal character!&amp;#34;; } else { passthru(&amp;#34;grep -i $key dictionary.txt&amp;#34;); } } ?</description><content type="html"><![CDATA[<p>This one is the same as Natas9, but with a small &ldquo;roadblock&rdquo;.</p>
